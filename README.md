@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# marvel-front
+
+Marvel website made with React, NodeJS and Express using Marvel Developer API. All rights reserved to Marvel.
 
 ## Available Scripts
 
