@@ -2,13 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../images/logo-marvel.jpg";
 import { useHistory } from "react-router-dom";
-const Header = ({
-  token,
-  setUserToken,
-  userAvatar,
-  setsignInModal,
-  setLogInModal,
-}) => {
+const Header = ({ token, setUserToken, setLogInModal }) => {
   const history = useHistory();
   return (
     <>
