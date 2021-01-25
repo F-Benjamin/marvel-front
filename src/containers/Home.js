@@ -11,6 +11,8 @@ const Home = ({
   logInModal,
   setLogInModal,
   setUserToken,
+  favCharacters,
+  setFavCharacters,
 }) => {
   const [characters, setCharacters] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -32,7 +34,7 @@ const Home = ({
 
     useEffect(() => {
       fetchData();
-    }, [page, searchCharacter]);
+    }, [fetchData]);
   } catch (error) {
     console.log(error.message);
   }
@@ -64,6 +66,8 @@ const Home = ({
           isLoading={isLoading}
           pageMax={pageMax}
           setPage={setPage}
+          favCharacters={favCharacters}
+          setFavCharacters={setFavCharacters}
         />
       </div>
     </>

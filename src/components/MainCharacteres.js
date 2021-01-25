@@ -3,8 +3,16 @@ import Loader from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import imageNotFound from "../images/image_not_found.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const MainCharacteres = ({ characters, isLoading, setPage, pageMax }) => {
+const MainCharacteres = ({
+  characters,
+  isLoading,
+  setPage,
+  pageMax,
+  favCharacters,
+  setFavCharacters,
+}) => {
   const handlePageClick = (e) => {
     setPage(e.selected + 1);
   };
@@ -26,8 +34,8 @@ const MainCharacteres = ({ characters, isLoading, setPage, pageMax }) => {
             return (
               <>
                 <div key={index} className="main-list">
-                  <Link className="link" to={`/characteres/${heroes.id}`}>
-                    <div className="main-cards">
+                  <div className="main-cards">
+                    <Link className="link" to={`/characteres/${heroes.id}`}>
                       <img
                         src={
                           heroes.thumbnail.path ===
@@ -37,14 +45,36 @@ const MainCharacteres = ({ characters, isLoading, setPage, pageMax }) => {
                         }
                         alt={heroes.name}
                       />
-                      <div className="cards-title">
-                        <div>{heroes.name}</div>
-                      </div>
-                      <div className="cards-description">
-                        {heroes.description}
+                    </Link>
+                    <div className="cards-title">
+                      <div>{heroes.name}</div>
+                      <div className="cards-fav">
+                        <Link
+                        // onClick={() => {
+                        //   const newTab = [...favCharacters];
+                        //   const newFav = {
+                        //     name: heroes.name,
+                        //     picture:
+                        //       heroes.thumbnail.path ===
+                        //       "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
+                        //         ? `${imageNotFound}`
+                        //         : `${heroes.thumbnail.path}.${heroes.thumbnail.extension}`,
+                        //     description: heroes.description,
+                        //   };
+                        //   newTab.push(newFav);
+                        //   setFavCharacters(newTab);
+                        //   console.log(newTab);
+                        //   localStorage.setItem("fav", newTab);
+                        // }}
+                        >
+                          <FontAwesomeIcon icon="star" className="fav-icon" />
+                        </Link>
                       </div>
                     </div>
-                  </Link>
+                    <div className="cards-description">
+                      {heroes.description}
+                    </div>
+                  </div>
                 </div>
               </>
             );

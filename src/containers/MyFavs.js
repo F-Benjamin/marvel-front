@@ -1,6 +1,6 @@
 import React from "react";
 
-const Myfavs = () => {
+const Myfavs = ({ favCharacters, setFavCharacters }) => {
   return (
     <>
       <div className="container">

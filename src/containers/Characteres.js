@@ -34,7 +34,7 @@ const Characteres = () => {
 
     useEffect(() => {
       fetchData();
-    }, []);
+    }, [fetchData]);
   } catch (error) {
     console.log(error.message);
   }

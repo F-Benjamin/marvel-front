@@ -10,13 +10,18 @@ import Comics from "./containers/Comics";
 import Characteres from "./containers/Characteres";
 import MyFavs from "./containers/MyFavs";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faTimes, faStar } from "@fortawesome/free-solid-svg-icons";
+library.add(faTimes, faStar);
+
 function App() {
   const [token, setToken] = useState(Cookie.get("token") || null);
   const [signInModal, setsignInModal] = useState(false);
   const [logInModal, setLogInModal] = useState(false);
-  // const [favCharacters, setFavCharacters] = useState(
-  //   Cookie.get("favCharaters") || null
-  // );
+  const [favCharacters, setFavCharacters] = useState([]);
+
+  const localFav = localStorage.getItem("fav");
+  console.log(localFav);
 
   const setUserToken = (newToken) => {
     if (newToken) {
@@ -39,7 +44,11 @@ function App() {
         />
         <Switch>
           <Route path="/myfavs">
-            <MyFavs token={token} />
+            <MyFavs
+              token={token}
+              favCharacters={favCharacters}
+              setFavCharacters={setFavCharacters}
+            />
           </Route>
           <Route path="/comics">
             <Comics
@@ -69,6 +78,8 @@ function App() {
               signInModal={signInModal}
               logInModal={logInModal}
               setLogInModal={setLogInModal}
+              favCharacters={favCharacters}
+              setFavCharacters={setFavCharacters}
             />
           </Route>
         </Switch>

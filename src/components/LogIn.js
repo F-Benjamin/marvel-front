@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const LogIn = ({ setUserToken, setLogInModal, setsignInModal }) => {
   const [password, setPassword] = useState("");
@@ -64,7 +65,7 @@ const LogIn = ({ setUserToken, setLogInModal, setsignInModal }) => {
             setLogInModal(false);
           }}
         >
-          Back
+          <FontAwesomeIcon icon="times" />
         </button>
       </div>
     </>

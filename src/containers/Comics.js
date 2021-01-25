@@ -33,7 +33,7 @@ const Comics = ({
 
     useEffect(() => {
       fetchData();
-    }, [page, searchComics]);
+    }, [fetchData]);
   } catch (error) {
     console.log(error.message);
   }
